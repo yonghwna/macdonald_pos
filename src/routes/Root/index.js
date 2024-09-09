@@ -1,10 +1,15 @@
 import { Link, Outlet } from "react-router-dom";
+import { createContext } from "react";
+import { Container } from "../../components/components";
+
 export default function Root() {
+  const ThemeContext = createContext();
+
   return (
     <>
       <div id="sidebar">
         <h1>React Router Contacts</h1>
-        <div>
+        {/* <div>
           <form id="search-form" role="search">
             <input
               id="q"
@@ -19,7 +24,7 @@ export default function Root() {
           <form method="post">
             <button type="submit">New</button>
           </form>
-        </div>
+        </div> */}
         <nav>
           <ul>
             <li>
@@ -28,11 +33,22 @@ export default function Root() {
             <li>
               <Link to={`/income`}>INCOME</Link>
             </li>
+            <li>
+              <Link to={`/menu`}>Menu</Link>
+            </li>
+            {/* <li>
+              <Link to={`/game`}>Game</Link>
+            </li> */}
+            <li>
+              <Link to={`/products`}>Products</Link>
+            </li>
           </ul>
         </nav>
       </div>
       <div id="detail">
-        <Outlet />
+        <Container>
+          <Outlet />
+        </Container>
       </div>
     </>
   );

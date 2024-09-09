@@ -1,12 +1,10 @@
-import React, { useReducer, useState } from "react";
+import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import {
-  Container,
   Title,
   ItemContainer,
   ItemName,
   ItemPrice,
-  ReceiptContainer,
   ReceiptItem,
   ReceiptTotal,
   PaymentButton,
@@ -14,21 +12,15 @@ import {
   ModalContent,
   QuantityButton,
   CloseButton,
+  ReceiptContainer,
 } from "../../components/components";
-import { billReducer } from "../../hook/bill";
+import { useBillReducer } from "../../hook/bill";
+
 // state 초기 상태
-const initialState = {
-  items: {
-    burger: { name: "Burger", price: 4000, count: 0 },
-    fries: { name: "Fries", price: 2000, count: 0 },
-    drink: { name: "Drink", price: 2000, count: 0 },
-  },
-  total: 0,
-};
 
 const BurgerShop = () => {
-  //state와 dispatch 반환
-  const [state, dispatch] = useReducer(billReducer, initialState);
+  const [initialState, state, dispatch] = useBillReducer();
+
   //모달 on/off
   const [showModal, setShowModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -73,7 +65,7 @@ const BurgerShop = () => {
     });
   };
   return (
-    <Container>
+    <>
       <Title>🍔 Macdonald's 🍟</Title>
       {Object.keys(state.items).map((itemKey) => {
         const item = state.items[itemKey];
@@ -128,7 +120,7 @@ const BurgerShop = () => {
           </ModalContent>
         </ModalOverlay>
       )}
-    </Container>
+    </>
   );
 };
 export default BurgerShop;

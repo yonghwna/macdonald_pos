@@ -151,3 +151,58 @@ export const PaymentButton = styled.button`
     background-color: #b22017;
   }
 `;
+export const PastReceiptsContainer = styled.div`
+  margin-left: 20px;
+  overflow-y: auto;
+  max-height: 80vh;
+`;
+
+export const PastReceipt = styled.div`
+  position: relative;
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 10px;
+  width: 300px;
+  border: 1px dashed #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Courier New", Courier, monospace;
+`;
+
+export const PastReceiptItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 1em;
+  color: #333;
+`;
+
+export const PastReceiptTotal = styled.div`
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #d52b1e;
+  border-top: 1px dashed #333;
+  padding-top: 5px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+`;
+export const ReceiptHeader = styled.div`
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
+export const DeleteButton = styled.button`
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 0px 10px;
+  font-size: 1.5em;
+  color: #d52b1e;
+  &:hover {
+    color: #b22017;
+  }
+`;
